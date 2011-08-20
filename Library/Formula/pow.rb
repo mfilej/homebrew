@@ -25,9 +25,11 @@ class Pow < Formula
     <<-EOS.undent
       Sets up firewall rules to forward port 80 to Pow:
         sudo pow --install-system
+        sudo launchctl load -w /Library/LaunchDaemons/cx.pow.firewall.plist
 
       Installs launchd agent to start on login:
         pow --install-local
+        launchctl load -w ~/Library/LaunchAgents/cx.pow.powd.plist
 
     EOS
   end
